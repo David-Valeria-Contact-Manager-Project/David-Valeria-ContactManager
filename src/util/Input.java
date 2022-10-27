@@ -16,7 +16,7 @@ public class Input {
 
     //GETTERS AND SETTERS//
     public String getString() {
-        System.out.println("Enter your input: ");
+        System.out.println("Enter a name: ");
         return scanner.nextLine();
     }
 

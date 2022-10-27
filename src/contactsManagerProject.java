@@ -30,21 +30,19 @@ public class contactsManagerProject {
     // Creates a loop that goes through the array
     private static void greetNames() {
         for (String name : readLines()) {
-            System.out.printf("%s works at Codeup.%n", name);
+            System.out.printf("%s%n", name);
         }
     }
 
     // Creates a name and adds it to contacts list
-    private static void writeLines() {
-        List<String> addNames = Arrays.asList("");
+    private static void writeLines(String userChoice) {
+        List<String> addNames = Arrays.asList(userChoice);
         try {
             Files.write(p, addNames, StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        List<String> newNames = Arrays.asList("");
-        newNames.add(getSring());
     }
 
 
@@ -57,6 +55,11 @@ public class contactsManagerProject {
             }
         }
 //        writeLines(updatedNames);
+    }
+
+    // This searches through the array
+    private static void searchName(){
+        List<String>contactList = Arrays.asList(p);
     }
 
 //////////////////////////////////////// End of Methods///////////////////////////////////
@@ -91,8 +94,9 @@ public class contactsManagerProject {
                     greetNames();
                     break;
                 case "2":
-                    System.out.println("Enter a name: ");
+                    String addName = input.getString();
                     List<String> newName = new ArrayList<>();
+                    writeLines(addName);
                     break;
                 case "3":
                     break;
