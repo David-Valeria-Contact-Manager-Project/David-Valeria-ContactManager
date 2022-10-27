@@ -62,9 +62,21 @@ public class contactsManagerProject {
 
 
     // This searches through the array
-//    private static void searchName(){
-//        List<String>contactList = Arrays.asList(p);
-//    }
+    private static void searchName(String nameToSearch){
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = Files.readAllLines(p);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (String searchName : lines) {
+            if (searchName.contains(nameToSearch)){
+                System.out.println(searchName);
+            }
+        }
+    }
+
+
 
 //////////////////////////////////////// End of Methods///////////////////////////////////
 
@@ -103,6 +115,8 @@ public class contactsManagerProject {
                     writeLines(addName);
                     break;
                 case "3":
+                    String search = input.getString();
+                    searchName(search);
                     break;
                 case "4":
                     String deletion = input.getString();
