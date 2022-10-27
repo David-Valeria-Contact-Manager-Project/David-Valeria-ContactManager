@@ -12,6 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class contactsManagerProject {
+    // This is the path to contacts.txt
+    static Path p = Paths.get("src", "ContactsProject", "contacts.txt");
+
+    // We import it input class
+    Input input = new Input();
 
 /////////////////////////////////    Methods ///////////////////////////////////////////////
 
@@ -35,14 +40,13 @@ public class contactsManagerProject {
     }
 
     // Creates a name and adds it to contacts list
-    private static void writeLines(String userChoice) {
+    private static void addNames(String userChoice) {
         List<String> addNames = Arrays.asList(userChoice);
         try {
             Files.write(p, addNames, StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 
@@ -82,20 +86,14 @@ public class contactsManagerProject {
 
 
 
-    Input input = new Input();
-    static Path p = Paths.get("src", "ContactsProject", "contacts.txt");
-    
-
-
-
     public static void main(String[] args) throws IOException {
-        System.out.println(Files.exists(p)); // Path is True
+//        System.out.println(Files.exists(p)); // Path is True
 
 
         // This creates the user menu
         Input input = new Input();
         String userChoice = "Yo";
-        while (!userChoice.equals("5")) {   // while the user choice does not equal to 0 it can do any of the options
+        while (!userChoice.equals("5")) {   // while the user choice does not equal to 5 it can do any of the options
             System.out.println("What would you like to do");
             System.out.println("1 - View contacts");
             System.out.println("2 - Add a new contact");
@@ -103,7 +101,7 @@ public class contactsManagerProject {
             System.out.println("4 - Delete an existing contact");
             System.out.println("5 - Exit ");
 
-            userChoice = input.getString(" Enter your choice: ");
+            userChoice = input.getString(" Enter an option (1, 2, 3, 4 or 5): ");
 
             switch (userChoice){
                 case "1":
@@ -112,7 +110,7 @@ public class contactsManagerProject {
                 case "2":
                     String addName = input.getString();
                     List<String> newName = new ArrayList<>();
-                    writeLines(addName);
+                    addNames(addName);
                     break;
                 case "3":
                     String search = input.getString();
