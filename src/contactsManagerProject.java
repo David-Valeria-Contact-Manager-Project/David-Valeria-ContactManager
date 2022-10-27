@@ -1,4 +1,13 @@
+package src;
+
+
+import src.util.Input;
+
 public class contactsManagerProject {
+
+    Input input = new Input();
+
+
 
 
 }
