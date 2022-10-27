@@ -18,74 +18,6 @@ public class contactsManagerProject {
     // We import it input class
     Input input = new Input();
 
-/////////////////////////////////    Methods ///////////////////////////////////////////////
-
-    // Read contacts.txt
-    private static List<String> readLines() {
-    List<String> names;
-    try {
-        names = Files.readAllLines(p);
-    } catch (IOException e) {
-        throw new RuntimeException(e);
-    }
-    return names;
-}
-
-
-    // Creates a loop that goes through the array
-    private static void greetNames() {
-        for (String name : readLines()) {
-            System.out.printf("%s%n", name);
-        }
-    }
-
-    // Creates a name and adds it to contacts list
-    private static void addNames(String userChoice) {
-        List<String> addNames = Arrays.asList(userChoice);
-        try {
-            Files.write(p, addNames, StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-
-    // This deletes the names
-    private static void deleteName(String nameToDelete) throws IOException {
-        List<String> updatedNames = new ArrayList<>();
-        for (String name : readLines()) {
-            if (!name.equalsIgnoreCase(nameToDelete)) {
-                updatedNames.add(name);
-            }
-        }
-        Files.write(p, updatedNames);
-    }
-
-
-
-
-    // This searches through the array
-    private static void searchName(String nameToSearch){
-        List<String> lines = new ArrayList<>();
-        try {
-            lines = Files.readAllLines(p);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        for (String searchName : lines) {
-            if (searchName.contains(nameToSearch)){
-                System.out.println(searchName);
-            }
-        }
-    }
-
-
-
-//////////////////////////////////////// End of Methods///////////////////////////////////
-
-
-
     public static void main(String[] args) throws IOException {
 //        System.out.println(Files.exists(p)); // Path is True
 
@@ -102,24 +34,28 @@ public class contactsManagerProject {
             System.out.println("5 - Exit ");
 
             userChoice = input.getString(" Enter an option (1, 2, 3, 4 or 5): ");
+            System.out.println("Name | Phone number");
+            System.out.println("------------------");
 
             switch (userChoice){
                 case "1":
-                    greetNames();
+                    input.greetNames();
                     break;
                 case "2":
                     String addName = input.getString();
                     List<String> newName = new ArrayList<>();
-                    addNames(addName);
+                    String addNum = input.getString2();
+                    input.addNames(addName, addNum);
+
                     break;
                 case "3":
                     String search = input.getString();
-                    searchName(search);
+                    input.searchName(search);
                     break;
                 case "4":
                     String deletion = input.getString();
-                    deleteName(deletion);
-                    greetNames();
+                    input.deleteName(deletion);
+                    input.greetNames();
                     break;
                 case "5":
                     break;

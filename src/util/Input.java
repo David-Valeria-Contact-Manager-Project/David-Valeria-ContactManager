@@ -1,5 +1,13 @@
 package src.util;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
@@ -17,6 +25,11 @@ public class Input {
     //GETTERS AND SETTERS//
     public String getString() {
         System.out.println("Enter a name: ");
+        return scanner.nextLine();
+    }
+
+    public String getString2() {
+        System.out.println("Enter a number: ");
         return scanner.nextLine();
     }
 
@@ -106,7 +119,81 @@ public class Input {
             System.out.println(prompt);
             return scanner.nextDouble();
         }
+
+
+    /////////////////////////////////////////////////////////////////////////  Methods for project ////////////////////////////////////////////////////////////////////////////////////
+    static Path p = Paths.get("src", "ContactsProject", "contacts.txt");
+
+
+        public static List<String> readLines() {
+    List<String> names;
+    try {
+        names = Files.readAllLines(p);
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
+    return names;
+}
+
+
+
+    public static void greetNames() {
+            for (String name : readLines()) {
+                System.out.printf("%s%n", name);
+            }
+        }
+
+
+
+
+    // Creates a name and adds it to contacts list
+    public static void addNames(String userChoice, String addNum) {
+        String fullContactInfo = userChoice + " | " + addNum;
+        List<String> addNames = Arrays.asList(fullContactInfo);
+
+        try {
+            Files.write(p, addNames, StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    // This deletes the names
+    public static void deleteName(String nameToDelete) throws IOException {
+        List<String> updatedNames = new ArrayList<>();
+        for (String name : readLines()) {
+            if (!name.contains(nameToDelete)) {
+                updatedNames.add(name);
+            }
+        }
+        Files.write(p, updatedNames);
+    }
+
+
+
+
+    // This searches through the array
+    public static void searchName(String nameToSearch){
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = Files.readAllLines(p);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (String searchName : lines) {
+            if (searchName.contains(nameToSearch)){
+                System.out.println(searchName);
+            }
+        }
+    }
+
+    //////////////////////////////////////// End of Methods///////////////////////////////////////////////////////////////////////////////
+
+
+
+} // End of Input
 
 
 

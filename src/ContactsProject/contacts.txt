@@ -1,8 +1,6 @@
-Jack Blank
-Jane Doe
-Sam Space
-David
-Valeria
-Nazareth
-Danny
-Wudtee
+Jack Blank | 123-234-6777
+Jane Doe   | 915-904-3433
+Sam Space  | 456-222-2321
+Fernando   | 915-304-2333
+Trevor | 333-333-3333
+Mason | 956-796-16-13
