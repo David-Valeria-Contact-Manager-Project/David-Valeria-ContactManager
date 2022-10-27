@@ -1,3 +1,4 @@
+package src;
 
 import src.util.Input;
 
@@ -34,12 +35,16 @@ public class contactsManagerProject {
     }
 
     // Creates a name and adds it to contacts list
-    private static void writeLines(List<String> lines) {
+    private static void writeLines() {
+        List<String> addNames = Arrays.asList("");
         try {
-            Files.write(p, lines, StandardOpenOption.APPEND);
+            Files.write(p, addNames, StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        List<String> newNames = Arrays.asList("");
+        newNames.add(getSring());
     }
 
 
@@ -51,7 +56,7 @@ public class contactsManagerProject {
                 updatedNames.add(name);
             }
         }
-        writeLines(updatedNames);
+//        writeLines(updatedNames);
     }
 
 //////////////////////////////////////// End of Methods///////////////////////////////////
@@ -60,12 +65,7 @@ public class contactsManagerProject {
 
     Input input = new Input();
     static Path p = Paths.get("src", "ContactsProject", "contacts.txt");
-
-
-
-
-
-
+    
 
 
 
@@ -91,6 +91,8 @@ public class contactsManagerProject {
                     greetNames();
                     break;
                 case "2":
+                    System.out.println("Enter a name: ");
+                    List<String> newName = new ArrayList<>();
                     break;
                 case "3":
                     break;
