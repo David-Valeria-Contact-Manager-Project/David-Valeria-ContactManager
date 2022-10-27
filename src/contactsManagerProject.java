@@ -50,17 +50,17 @@ public class contactsManagerProject {
     private static void deleteName(String nameToDelete) {
         List<String> updatedNames = new ArrayList<>();
         for (String name : readLines()) {
-            if (!name.equalsIgnoreCase(nameToDelete)) {
-                updatedNames.add(name);
+            if (name.equalsIgnoreCase(Input())) {
+                readLines().remove(name);
             }
         }
 //        writeLines(updatedNames);
     }
 
     // This searches through the array
-    private static void searchName(){
-        List<String>contactList = Arrays.asList(p);
-    }
+//    private static void searchName(){
+//        List<String>contactList = Arrays.asList(p);
+//    }
 
 //////////////////////////////////////// End of Methods///////////////////////////////////
 
@@ -101,6 +101,9 @@ public class contactsManagerProject {
                 case "3":
                     break;
                 case "4":
+                    String deletion = input.getString();
+                    deleteName(deletion);
+                    greetNames();
                     break;
                 case "5":
                     break;
