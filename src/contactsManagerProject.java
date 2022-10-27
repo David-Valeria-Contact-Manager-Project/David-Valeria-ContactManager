@@ -46,16 +46,20 @@ public class contactsManagerProject {
     }
 
 
+
     // This deletes the names
-    private static void deleteName(String nameToDelete) {
+    private static void deleteName(String nameToDelete) throws IOException {
         List<String> updatedNames = new ArrayList<>();
         for (String name : readLines()) {
-            if (name.equalsIgnoreCase(Input())) {
-                readLines().remove(name);
+            if (!name.equalsIgnoreCase(nameToDelete)) {
+                updatedNames.add(name);
             }
         }
-//        writeLines(updatedNames);
+        Files.write(p, updatedNames);
     }
+
+
+
 
     // This searches through the array
 //    private static void searchName(){
@@ -72,7 +76,7 @@ public class contactsManagerProject {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println(Files.exists(p)); // Path is True
 
 
