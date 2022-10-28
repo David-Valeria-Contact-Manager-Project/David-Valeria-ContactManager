@@ -15,9 +15,10 @@ public class contactsManagerProject {
     // This is the path to contacts.txt
     static Path p = Paths.get("src", "ContactsProject", "contacts.txt");
 
-    // We import it input class
+    // This is how we import our Input class
     Input input = new Input();
 
+    //  METHODS ARE IN INPUT CLASS
     public static void main(String[] args) throws IOException {
 //        System.out.println(Files.exists(p)); // Path is True
 
