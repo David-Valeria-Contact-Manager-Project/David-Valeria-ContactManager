@@ -55,6 +55,7 @@ public class contactsManagerProject {
                     String search = input.getString();
                     input.searchName(search);
                     break;
+                // We are using the getstring to prompt and delete method to delete a name
                 case "4":
                     String deletion = input.getString();
                     input.deleteName(deletion);
