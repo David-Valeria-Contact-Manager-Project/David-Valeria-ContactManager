@@ -64,7 +64,7 @@ public class contactsManagerProject {
                 case "5":
                     break;
                 default:
-                    System.out.println("BE MORE SMARTER! FOLLOW DIRECTIONS");
+                    System.out.println("Please choose a option between 1-5");
             }
 
 
