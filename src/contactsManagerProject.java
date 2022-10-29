@@ -39,16 +39,18 @@ public class contactsManagerProject {
             System.out.println("------------------");
 
             switch (userChoice){
+                // We are using the greet-names method to display the array
                 case "1":
                     input.greetNames();
                     break;
+                // We are using the addnames method to add the name and number
                 case "2":
                     String addName = input.getString();
                     List<String> newName = new ArrayList<>();
                     String addNum = input.getString2();
                     input.addNames(addName, addNum);
-
                     break;
+                // We are using the getString to prompt and searchName method to search through the array
                 case "3":
                     String search = input.getString();
                     input.searchName(search);

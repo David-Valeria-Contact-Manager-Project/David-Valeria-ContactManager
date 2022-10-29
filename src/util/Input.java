@@ -124,7 +124,7 @@ public class Input {
     /////////////////////////////////////////////////////////////////////////  Methods for project ////////////////////////////////////////////////////////////////////////////////////
     static Path p = Paths.get("src", "ContactsProject", "contacts.txt");
 
-//  Gets whats inside the array
+//  Gets what's inside the array
         public static List<String> readLines() {
     List<String> names;
     try {
@@ -137,7 +137,7 @@ public class Input {
 
 
 
-// Loops thourgh the array and outputs
+// Loops through the array and outputs
     public static void greetNames() {
             for (String name : readLines()) {
                 System.out.printf("%s%n", name);
