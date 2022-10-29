@@ -149,7 +149,9 @@ public class Input {
 
     // Creates a name and adds it to contacts list
     public static void addNames(String userChoice, String addNum) {
-        String fullContactInfo = userChoice + " | " + addNum;
+            // Created PhoneNum so it can format addNum
+        String phoneNum = formatPhoneNum(addNum);
+        String fullContactInfo = userChoice + " | " + phoneNum;
         List<String> addNames = Arrays.asList(fullContactInfo);
 
         try {
@@ -188,6 +190,24 @@ public class Input {
                 System.out.println(searchName);
             }
         }
+    }
+
+    // Found this method in stackoverflow that formats numbers
+    public static String formatPhoneNum(String aNum) {
+            String areaCode = null;
+            String firstThree = null;
+            String lastFour = null;
+            if (aNum.length() == 10) {
+                areaCode = "(" + aNum.substring(0, 3) + ") ";
+                firstThree = aNum.substring(3, 6) + "-";
+                lastFour = aNum.substring(6);
+            } else if (aNum.length() == 7) {
+                areaCode = "(???) ";
+                firstThree = aNum.substring(0,3) + "-";
+                lastFour = aNum.substring(3);
+
+            }
+        return new StringBuilder().append(areaCode).append(firstThree).append(lastFour).toString();
     }
 
     //////////////////////////////////////// End of Methods///////////////////////////////////////////////////////////////////////////////

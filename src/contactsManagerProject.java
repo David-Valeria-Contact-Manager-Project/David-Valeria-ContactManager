@@ -46,7 +46,6 @@ public class contactsManagerProject {
                 // We are using the addnames method to add the name and number
                 case "2":
                     String addName = input.getString();
-                    List<String> newName = new ArrayList<>();
                     String addNum = input.getString2();
                     input.addNames(addName, addNum);
                     break;
