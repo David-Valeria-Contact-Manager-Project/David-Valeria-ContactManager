@@ -159,7 +159,7 @@ public class Input {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+        }
 
 
 
@@ -209,6 +209,8 @@ public class Input {
             }
         return new StringBuilder().append(areaCode).append(firstThree).append(lastFour).toString();
     }
+
+
 
     //////////////////////////////////////// End of Methods///////////////////////////////////////////////////////////////////////////////
 

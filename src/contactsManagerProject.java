@@ -64,6 +64,7 @@ public class contactsManagerProject {
                     break;
                 default:
                     System.out.println("Please choose a option between 1-5");
+                    System.out.println("You choose " + userChoice);
             }
 
 
