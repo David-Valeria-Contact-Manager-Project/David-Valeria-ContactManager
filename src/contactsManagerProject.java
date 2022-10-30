@@ -76,4 +76,5 @@ public class contactsManagerProject {
     } // End of main
 } // End of contacts Manager Project
 
+// Need to make it to where it tells you that the contact already exist
 
