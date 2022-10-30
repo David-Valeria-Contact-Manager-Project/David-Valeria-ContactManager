@@ -77,4 +77,4 @@ public class contactsManagerProject {
 } // End of contacts Manager Project
 
 // Need to make it to where it tells you that the contact already exist
-
+// Need to do the auto format so the spacing is even
