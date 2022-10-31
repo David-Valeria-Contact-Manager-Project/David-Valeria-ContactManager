@@ -1,5 +1,6 @@
-Jack Blank | 123-234-6777
-Jane Doe   | 915-904-3433
-Sam Space  | 456-222-2321
-Fernando   | 915-304-2333
-Mason Wudtee | (915) 308-5923
+Jack Blank           | (123) 234-6777
+Jane Doe             | (915) 904-3433
+Sam Space            | (456) 222-2321
+Valeria Canizales    | (208) 512-5732      
+Mason Wudtee         | (912) 306-6848      
+David Lara           | (915) 203-4657      

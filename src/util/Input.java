@@ -1,5 +1,7 @@
 package src.util;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Input {
+
+public class Input  {
 
     private Scanner scanner;
 
@@ -151,14 +154,13 @@ public class Input {
     public static void addNames(String userChoice, String addNum) {
             // Created PhoneNum so it can format addNum
         String phoneNum = formatPhoneNum(addNum);
-        String fullContactInfo = userChoice + " | " + phoneNum;
-        List<String> addNames = Arrays.asList(fullContactInfo);
 
         try {
-            Files.write(p, addNames, StandardOpenOption.APPEND);
+            Files.write(p, Arrays.asList(String.format("%-20s | %-20s",userChoice, phoneNum)), StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         }
 
 
@@ -209,7 +211,6 @@ public class Input {
             }
         return new StringBuilder().append(areaCode).append(firstThree).append(lastFour).toString();
     }
-
 
 
     //////////////////////////////////////// End of Methods///////////////////////////////////////////////////////////////////////////////

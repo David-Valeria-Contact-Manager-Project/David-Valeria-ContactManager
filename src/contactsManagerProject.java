@@ -35,8 +35,8 @@ public class contactsManagerProject {
             System.out.println("5 - Exit ");
 
             userChoice = input.getString(" Enter an option (1, 2, 3, 4 or 5): ");
-            System.out.println("Name | Phone number");
-            System.out.println("------------------");
+            System.out.println(" Name                | Phone number");
+            System.out.println("---------------------------------------");
 
             switch (userChoice){
                 // We are using the greet-names method to display the array
