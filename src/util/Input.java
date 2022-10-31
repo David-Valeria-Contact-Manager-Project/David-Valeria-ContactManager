@@ -53,6 +53,13 @@ public class Input  {
         return choice.equalsIgnoreCase("y") || choice.equalsIgnoreCase("yes");
     }
 
+
+    public  boolean yesNo(String prompt) {
+        System.out.println(prompt);
+        String choice = scanner.next().toLowerCase();
+        return choice.equalsIgnoreCase("y") || choice.equalsIgnoreCase("yes");
+    }
+
     public int getInt(int min, int max) {
         String choice = "yes";
         int value = 0;
@@ -77,24 +84,7 @@ public class Input  {
             return scanner.nextInt();
         }
 
-//        public double getDouble (double min, double max){
-//            String choice = "yes";
-//            double value = 0.00;
-//
-//            while (choice.equalsIgnoreCase("yes")) {
-//                System.out.printf("Enter a number between %.2f and %.2f:%n", min, max);
-//                value = scanner.nextDouble();
-//                if (value <= max && value >= min) {
-//                    System.out.println("GOOD JOB!");
-//                } else {
-//                    System.out.println("NOPE THAT'S NOT IT!");
-//                }
-//                System.out.println("Continue? (yes/no): ");
-//                choice = scanner.next();
-////                System.out.println();
-//            }
-//            return scanner.nextDouble();
-//        }
+
 
     public double getDouble (double min, double max){
         String choice = "yes";
@@ -151,9 +141,11 @@ public class Input  {
 
 
     // Creates a name and adds it to contacts list
-    public static void addNames(String userChoice, String addNum) {
+    public void addNames(String userChoice, String addNum) {
             // Created PhoneNum so it can format addNum
         String phoneNum = formatPhoneNum(addNum);
+        // We are calling the duplicateContact
+        duplicateContact(userChoice);
 
         try {
             Files.write(p, Arrays.asList(String.format("%-20s | %-20s",userChoice, phoneNum)), StandardOpenOption.APPEND);
@@ -212,6 +204,24 @@ public class Input  {
         return new StringBuilder().append(areaCode).append(firstThree).append(lastFour).toString();
     }
 
+
+    // Credit to Fernando
+    public void duplicateContact(String nameToSearch2){
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = Files.readAllLines(p);
+            for (String searchName : lines) {
+            if (searchName.contains(nameToSearch2)){
+                boolean exist = yesNo("There's already a contact with the same name. Do you want to overwrite it? (yes/no)\n");
+                if (exist){
+                    duplicateContact(nameToSearch2);
+                }
+            }
+        }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     //////////////////////////////////////// End of Methods///////////////////////////////////////////////////////////////////////////////
 
