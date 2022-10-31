@@ -194,7 +194,7 @@ public class Input  {
         }
     }
 
-    // Found this method in stackoverflow that formats numbers
+    // This formats the numbers
     public static String formatPhoneNum(String aNum) {
             String areaCode = null;
             String firstThree = null;
